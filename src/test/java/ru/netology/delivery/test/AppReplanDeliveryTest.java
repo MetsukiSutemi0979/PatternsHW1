@@ -23,17 +23,15 @@ class DeliveryTest {
     void setup() {
         Configuration.browserCapabilities = new ChromeOptions().setBrowserVersion("115");
         open("http://localhost:9999");
-         DataGenerator dataGenerator = new DataGenerator();
+        validUser = DataGenerator.Registration.generateUser("ru");
     }
 
     @Test
     void shouldSuccessfulPlanAndReplanMeeting() {
-        var validUser = DataGenerator.Registration.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
         var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
         var daysToAddForSecondMeeting = 7;
         var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
-
         fillAndSubmitForm(firstMeetingDate);
         checkSuccessNotification(firstMeetingDate);
 
