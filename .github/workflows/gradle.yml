@@ -13,10 +13,17 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Start SUT
         run: java -jar ./artifacts/app-replan-delivery.jar &
+        env:
+          SERVER_PORT: 9999 
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          google-chrome-stable --version
       - name: Build with Gradle
         run: ./gradlew test --info -Dselenide.headless=true
