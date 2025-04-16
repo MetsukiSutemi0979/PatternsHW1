@@ -21,7 +21,6 @@ class DeliveryTest {
 
     @BeforeEach
     void setup() {
-        Configuration.browserCapabilities = new ChromeOptions().setBrowserVersion("115");
         open("http://localhost:9999");
         validUser = DataGenerator.Registration.generateUser("ru");
     }
