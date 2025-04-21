@@ -19,6 +19,7 @@ dependencies {
     testImplementation 'com.codeborne:selenide:6.17.2'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'org.projectlombok:lombok:1.18.26'
+    testImplementation 'io.qameta.allure:allure-selenide:2.16.1'
 }
 
 test {
