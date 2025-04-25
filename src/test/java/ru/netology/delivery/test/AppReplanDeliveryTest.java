@@ -19,6 +19,16 @@ class AppReplanDeliveryTest {
 
     private DataGenerator.UserInfo validUser;
 
+    @BeforeAll
+    static void setUpAll(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAll(){
+       SelenideLogger.removeListener("allure");
+    }
+
     @BeforeEach
     void setup() {
         Configuration.browserCapabilities = new ChromeOptions().setBrowserVersion("115");
